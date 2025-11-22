@@ -1,12 +1,12 @@
-# variable "instance_type" {
-#   default = "t2.micro"
-#   description = "EC2 instance type"
-# }
+variable "instance_type" {
+  default = "t2.micro"
+  description = "EC2 instance type"
+}
 
-# variable "AMI_IMAGE" {
-#   default = "ami-0b4f379183e5706b9"
-#   description = "AMI_IMAGE"
-# }
+variable "ami_id" {
+  default = "ami-0b4f379183e5706b9"
+  description = "AMI_IMAGE"
+}
 
 
 
