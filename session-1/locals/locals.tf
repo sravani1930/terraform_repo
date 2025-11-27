@@ -1,10 +1,8 @@
 locals {
   name = "sravani"
-  instance_type = [
-    for name in var.instance_names :
-        ( name == "mongodb" || name == "mysql") ? "t3.small" : "t2.micro"
-    ]
- 
+  count = length(var.instance_names)
+  instance_type = var.instance_names[count.index] == "mongodb" || var.instance_names[count.index] == "mysql" ? "t3.small" : "t2.micro"
+  ip = var.instance_names[count.index] == "web" ? aws_instance.web[count.index].public_ip : aws_instance.web[count.index].private_ip
 }
 
 

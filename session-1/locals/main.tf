@@ -14,5 +14,5 @@ resource "aws_route53_record" "www" {
   name    = "${var.instance_names[count.index]}.${var.domain_name}"
   type    = "A"
   ttl     = 1
-  records = [var.instance_names[count.index] == "web" ? aws_instance.web[count.index].public_ip : aws_instance.web[count.index].private_ip]
+  records = [ local.ip ]
 }
